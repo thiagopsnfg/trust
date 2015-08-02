@@ -1,0 +1,15 @@
+br\com\trust\model\Cliente.class
+br\com\trust\service\ParcelaService.class
+br\com\trust\model\Cliente_.class
+br\com\trust\service\ClienteService.class
+br\com\trust\model\Parcela_.class
+br\com\trust\model\Situacao.class
+br\com\trust\repository\VendaRepository.class
+br\com\trust\repository\ClienteRepository.class
+br\com\trust\repository\BasicRepository.class
+br\com\trust\service\BasicService.class
+br\com\trust\repository\ParcelaRepository.class
+br\com\trust\model\Parcela.class
+br\com\trust\model\Venda_.class
+br\com\trust\service\VendaService.class
+br\com\trust\model\Venda.class
