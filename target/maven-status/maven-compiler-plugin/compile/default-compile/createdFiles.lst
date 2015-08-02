@@ -1,9 +1,11 @@
 br\com\trust\model\Cliente.class
 br\com\trust\service\ParcelaService.class
+br\com\trust\controller\BasicController.class
 br\com\trust\model\Cliente_.class
 br\com\trust\service\ClienteService.class
 br\com\trust\model\Parcela_.class
 br\com\trust\model\Situacao.class
+br\com\trust\controller\ClienteController.class
 br\com\trust\repository\VendaRepository.class
 br\com\trust\repository\ClienteRepository.class
 br\com\trust\repository\BasicRepository.class

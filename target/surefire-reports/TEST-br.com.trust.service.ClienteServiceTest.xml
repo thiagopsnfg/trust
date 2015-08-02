@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="7" failures="0" name="br.com.trust.service.ClienteServiceTest" time="97.615" errors="0" skipped="0">
+<testsuite tests="7" failures="0" name="br.com.trust.service.ClienteServiceTest" time="204.072" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_40\jre\bin"/>
@@ -61,11 +61,11 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="br.com.trust.service.ClienteServiceTest" name="testGetClientes" time="18.017"/>
-  <testcase classname="br.com.trust.service.ClienteServiceTest" name="testGetClienteByName" time="13.032"/>
-  <testcase classname="br.com.trust.service.ClienteServiceTest" name="testSetCliente" time="13.422"/>
-  <testcase classname="br.com.trust.service.ClienteServiceTest" name="testRemoveCliente" time="13.157"/>
-  <testcase classname="br.com.trust.service.ClienteServiceTest" name="testGetClienteBySituacao" time="12.985"/>
-  <testcase classname="br.com.trust.service.ClienteServiceTest" name="testGetCliente" time="14.282"/>
-  <testcase classname="br.com.trust.service.ClienteServiceTest" name="testAddCliente" time="12.642"/>
+  <testcase classname="br.com.trust.service.ClienteServiceTest" name="testGetClientes" time="37.412"/>
+  <testcase classname="br.com.trust.service.ClienteServiceTest" name="testGetClienteByName" time="28.971"/>
+  <testcase classname="br.com.trust.service.ClienteServiceTest" name="testSetCliente" time="28.127"/>
+  <testcase classname="br.com.trust.service.ClienteServiceTest" name="testRemoveCliente" time="27.482"/>
+  <testcase classname="br.com.trust.service.ClienteServiceTest" name="testGetClienteBySituacao" time="26.34"/>
+  <testcase classname="br.com.trust.service.ClienteServiceTest" name="testGetCliente" time="27.881"/>
+  <testcase classname="br.com.trust.service.ClienteServiceTest" name="testAddCliente" time="27.781"/>
 </testsuite>
