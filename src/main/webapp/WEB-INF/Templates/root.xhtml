@@ -9,17 +9,31 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-        <h:outputStylesheet library="bootstrap/css" name="bootstrap-responsive.min.css"/>
-        <h:outputStylesheet library="bootstrap/css" name="bootstrap.min.css"/>
-        <h:outputStylesheet library="css" name="style.css"/>    
-        <h:outputScript library="bootstrap/js" name="bootstrap.min.js"/>
-        <h:outputScript library="jquery" name="jquery-1.11.3.min.js"/>
+        <title>Controle Financeiro Trust - <ui:insert name="titleOfPage">None</ui:insert></title>
 
+        <!-- Bootstrap Core CSS -->
+        <h:outputStylesheet library="sb-admin/css" name="bootstrap.min.css"/>
+        <!-- Custom CSS -->
+        <h:outputStylesheet library="sb-admin/css" name="sb-admin.css"/>
+        <!-- Morris Charts CSS -->
+        <h:outputStylesheet library="sb-admin/css/plugins" name="morris.css"/>
+        <!-- Custom Fonts -->
+        <h:outputStylesheet library="font-awesome/css" name="font-awesome.min.css"/>
+        <!-- Trust Css -->
+        <h:outputStylesheet library="css" name="style.css"/>   
+
+        <!-- Bootstrap Core JavaScript -->
+        <h:outputScript library="bootstrap/js" name="bootstrap.min.js" target="body"/>
+        <!-- jQuery -->
+        <h:outputScript library="jquery" name="jquery.js"/>
+        <!-- Morris Charts JavaScript -->
+        <h:outputScript library="sb-admin/js/plugins/morris" name="raphael.min.js" target="body"/>
+        <h:outputScript library="sb-admin/js/plugins/morris" name="morris.min.js" target="body"/>
+        <h:outputScript library="sb-admin/js/plugins/morris" name="morris-data.js" target="body"/>
+                
         <script>
             $myjQ = jQuery.noConflict();
-        </script>
-
-        <title>Controle Financeiro Trust - <ui:insert name="titleOfPage">None</ui:insert></title>
+        </script>       
     </h:head>
     <h:body>
 
@@ -179,12 +193,12 @@
                     </ul>
                 </div>
             </nav>
-                <!-- /.navbar-collapse -->
+            <!-- /.navbar-collapse -->
 
-                <div id="page-wrapper">
-                    <ui:insert name="content">Content</ui:insert>                
-                </div>  
-                <!-- /#wrapper -->
+            <div id="page-wrapper">
+                <ui:insert name="content">Content</ui:insert>                
+            </div>  
+            <!-- /#wrapper -->
         </div>
     </h:body>
 </html>
