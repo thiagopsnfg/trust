@@ -110,7 +110,7 @@ public class ClienteServiceTest {
     /**
      * Test of addCliente method, of class ClienteService.
      */
-    @Test
+    //@Test
     public void testAddCliente() throws Exception {
         System.out.println("addCliente");
 
@@ -125,7 +125,7 @@ public class ClienteServiceTest {
     /**
      * Test of getCliente method, of class ClienteService.
      */
-    @Test
+    //@Test
     public void testGetCliente() throws Exception {
         System.out.println("getCliente");
 
@@ -140,7 +140,7 @@ public class ClienteServiceTest {
     /**
      * Test of setCliente method, of class ClienteService.
      */
-    @Test
+    //@Test
     public void testSetCliente() throws Exception {
         System.out.println("setCliente");
 
@@ -154,7 +154,7 @@ public class ClienteServiceTest {
     /**
      * Test of removeCliente method, of class ClienteService.
      */
-    @Test
+    //@Test
     public void testRemoveCliente() throws Exception {
         System.out.println("removeCliente");
 
@@ -167,7 +167,7 @@ public class ClienteServiceTest {
     /**
      * Test of getClientes method, of class ClienteService.
      */
-    @Test
+    //@Test
     public void testGetClientes() throws Exception {
         clienteServiceinstance.addCliente(cliente1);
         clienteServiceinstance.addCliente(cliente2);
@@ -191,7 +191,7 @@ public class ClienteServiceTest {
     /**
      * Test of getClienteByName method, of class ClienteService.
      */
-    @Test
+    //@Test
     public void testGetClienteByName() throws Exception {
         clienteServiceinstance.addCliente(cliente1);
         String name = cliente1.getNome();
@@ -206,7 +206,7 @@ public class ClienteServiceTest {
     /**
      * Test of getClienteBySituacao method, of class ClienteService.
      */
-   @Test
+   //@Test
     public void testGetClienteBySituacao() throws Exception {
         cliente1.setSituacao(cliente2.getSituacao());        
         

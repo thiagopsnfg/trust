@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-                template="./WEB-INF/Templates/root.xhtml"
+                template="./WEB-INF/Templates/base.xhtml"
                 xmlns:p="http://primefaces.org/ui"
-                xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+                xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <ui:define name="titleOfPage">
         Home
@@ -11,7 +11,7 @@
 
     <ui:define name="content">
         <center>
-            
+            <h:graphicImage value="resources/img/LogoPreta.png" width="600" height="600"/>
         </center>        
     </ui:define>
 

@@ -118,7 +118,7 @@ public class VendaServiceTest {
     /**
      * Test of addVenda method, of class VendaService.
      */
-    @Test
+    //@Test
     public void testAddVenda() throws Exception {
         System.out.println("addVenda");
         Venda result = instance.addVenda(vndOne);
@@ -129,7 +129,7 @@ public class VendaServiceTest {
     /**
      * Test of getVenda method, of class VendaService.
      */
-    @Test
+    //@Test
     public void testGetVenda() throws Exception {
         System.out.println("getVenda");
         vndOne = instance.addVenda(vndOne);
@@ -141,7 +141,7 @@ public class VendaServiceTest {
     /**
      * Test of setVenda method, of class VendaService.
      */
-    @Test
+    //@Test
     public void testSetVenda() throws Exception {
         System.out.println("setVenda");
         vndTwo = instance.addVenda(vndTwo);
@@ -155,7 +155,7 @@ public class VendaServiceTest {
     /**
      * Test of removeVenda method, of class VendaService.
      */
-    //  @Test
+    //  //@Test
     public void testRemoveVenda() throws Exception {
         System.out.println("removeVenda");
         vndThree = instance.addVenda(vndThree);
@@ -168,7 +168,7 @@ public class VendaServiceTest {
     /**
      * Test of getVendasOfCliente method, of class VendaService.
      */
-    // @Test
+    // //@Test
     public void testGetVendasOfCliente() throws Exception {
         vndOne = instance.addVenda(vndOne);
         vndTwo = instance.addVenda(vndTwo);
@@ -191,7 +191,7 @@ public class VendaServiceTest {
     /**
      * Test of getVendasOfMonth method, of class VendaService.
      */
-    // @Test
+    // //@Test
     public void testGetVendasOfMonth() throws Exception {
         vndOne = instance.addVenda(vndOne);
         vndTwo = instance.addVenda(vndTwo);
@@ -217,7 +217,7 @@ public class VendaServiceTest {
     /**
      * Test of getVendasOfPeriod method, of class VendaService.
      */
-    @Test
+    //@Test
     public void testGetVendasOfPeriod() throws Exception {
         vndOne = instance.addVenda(vndOne);
         vndTwo = instance.addVenda(vndTwo);
@@ -254,7 +254,7 @@ public class VendaServiceTest {
     /**
      * Test of getVendasEmAberto method, of class VendaService.
      */
-    @Test
+    //@Test
     public void testGetVendasEmAberto() throws Exception {
         vndOne = instance.addVenda(vndOne);
         vndTwo = instance.addVenda(vndTwo);
@@ -277,7 +277,7 @@ public class VendaServiceTest {
     /**
      * Test of setVendaQuitada method, of class VendaService.
      */
-    @Test
+    //@Test
     public void testSetVendaQuitada() throws Exception {
         vndOne = instance.addVenda(vndOne);
 
@@ -291,7 +291,7 @@ public class VendaServiceTest {
     /**
      * Test of getSaldo method, of class VendaService.
      */
-    @Test
+    //@Test
     public void testGetSaldo() throws Exception {
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.YEAR, 2015);

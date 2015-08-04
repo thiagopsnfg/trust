@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">        
+
+
+    <h:head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>    
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <title>Controle Financeiro Trust - <ui:insert name="titleOfPage">None</ui:insert></title>
+
+        <!-- Bootstrap Core CSS -->
+        <h:outputStylesheet library="sb-admin/css" name="bootstrap.min.css"/>
+        <!-- Custom CSS -->
+        <h:outputStylesheet library="sb-admin/css" name="sb-admin.css"/>
+        <!-- Custom Fonts -->
+        <h:outputStylesheet library="sb-admin/font-awesome/css" name="font-awesome.css"/>
+        <!-- Trust Css -->
+        <h:outputStylesheet library="css" name="style.css"/>   
+
+        <!-- jQuery -->
+        <h:outputScript library="jquery" name="jquery.js"/>
+        <!-- Bootstrap Core JavaScript -->
+        <h:outputScript library="sb-admin/js" name="bootstrap.min.js"/>
+        <script>
+            $myjQ = jQuery.noConflict();
+        </script>       
+    </h:head>
+    <h:body>
+
+        <div id="wrapper"> 
+
+            <!-- Navigation -->
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.xhtml">Trust</a>                
+
+                </div>
+                <!-- Top Menu Items -->
+                <ui:include src="topMenu.xhtml"/>
+                <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->                
+                <ui:include src="sidebar.xhtml"/>
+            </nav>
+            <!-- /.navbar-collapse -->
+
+            <div id="page-wrapper">
+                <ui:insert name="content">Content</ui:insert>                
+            </div>  
+            <!-- /#wrapper -->
+        </div>
+    </h:body>
+</html>

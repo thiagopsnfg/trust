@@ -196,7 +196,7 @@ public class ParcelaServiceTest {
     /**
      * Test of addParcela method, of class ParcelaService.
      */
-    @Test
+    //@Test
     public void testAddParcela() throws Exception {
         System.out.println("addParcela");
         startParcelas(vndOne, Boolean.TRUE);
@@ -220,7 +220,7 @@ public class ParcelaServiceTest {
     /**
      * Test of getParcela method, of class ParcelaService.
      */
-    @Test
+    //@Test
     public void testGetParcela() throws Exception {
         System.out.println("getParcela");
         startParcelas(vndTwo, Boolean.TRUE);
@@ -236,7 +236,7 @@ public class ParcelaServiceTest {
     /**
      * Test of setParcela method, of class ParcelaService.
      */
-    // @Test
+    // //@Test
     public void testSetParcela() throws Exception {
         System.out.println("setParcela");
 
@@ -253,7 +253,7 @@ public class ParcelaServiceTest {
     /**
      * Test of removeParcela method, of class ParcelaService.
      */
-    @Test
+    //@Test
     public void testRemoveParcela() throws Exception {
         System.out.println("removeParcela");
         startParcelas(vndOne, Boolean.TRUE);
@@ -269,7 +269,7 @@ public class ParcelaServiceTest {
     /**
      * Test of getParcelaOfVendaByNumeroParcela method, of class ParcelaService.
      */
-    @Test
+    //@Test
     public void testGetParcelaOfVendaByNumeroParcela() throws Exception {
         System.out.println("getParcelaOfVendaByNumeroParcela");
         startParcelas(vndOne, Boolean.TRUE);
@@ -284,7 +284,7 @@ public class ParcelaServiceTest {
     /**
      * Test of getParcelasOfVenda method, of class ParcelaService.
      */
-    @Test
+    //@Test
     public void testGetParcelasOfVenda() throws Exception {
         System.out.println("getParcelasOfVenda");
         startParcelas(vndTwo, Boolean.TRUE);
@@ -305,7 +305,7 @@ public class ParcelaServiceTest {
     /**
      * Test of getParcelasEmAbertoOfVenda method, of class ParcelaService.
      */
-    @Test
+    //@Test
     public void testGetParcelasEmAbertoOfVenda() throws Exception {
         System.out.println("getParcelasEmAbertoOfVenda");
         startParcelas(vndThree, Boolean.FALSE);
@@ -326,7 +326,7 @@ public class ParcelaServiceTest {
     /**
      * Test of getParcelasPagasOfVendas method, of class ParcelaService.
      */
-    @Test
+    //@Test
     public void testGetParcelasPagasOfVendas() throws Exception {
         System.out.println("getParcelasPagasOfVendas");
         startParcelas(vndThree, Boolean.TRUE);
@@ -347,7 +347,7 @@ public class ParcelaServiceTest {
     /**
      * Test of getParcelaOfCliente method, of class ParcelaService.
      */
-    @Test
+    //@Test
     public void testGetParcelaOfCliente() throws Exception {
         System.out.println("getParcelaOfCliente");
         startParcelas(vndOne, Boolean.TRUE);
@@ -368,7 +368,7 @@ public class ParcelaServiceTest {
     /**
      * Test of getParcelasOfClientePago method, of class ParcelaService.
      */
-    @Test
+    //@Test
     public void testGetParcelasOfClientePago() throws Exception {
         System.out.println("getParcelasOfClientePago");
         startParcelas(vndOne, Boolean.TRUE);
@@ -389,7 +389,7 @@ public class ParcelaServiceTest {
     /**
      * Test of getParcelasOfClienteEmAberto method, of class ParcelaService.
      */
-    @Test
+    //@Test
     public void testGetParcelasOfClienteEmAberto() throws Exception {
         System.out.println("getParcelasOfClienteEmAberto");
         startParcelas(vndOne, Boolean.FALSE);
@@ -410,7 +410,7 @@ public class ParcelaServiceTest {
     /**
      * Test of getParcelasOfMonth method, of class ParcelaService.
      */
-    @Test
+    //@Test
     public void testGetParcelasOfMonth() throws Exception {
         System.out.println("getParcelasOfMonth");
         startParcelas(vndOne, Boolean.FALSE);
@@ -426,7 +426,7 @@ public class ParcelaServiceTest {
     /**
      * Test of getParcelasOfMonthEmAberto method, of class ParcelaService.
      */
-    // @Test
+    // //@Test
     public void testGetParcelasOfMonthEmAberto() throws Exception {
         System.out.println("getParcelasOfMonthEmAberto");
         startParcelas(vndOne, Boolean.FALSE);
@@ -441,7 +441,7 @@ public class ParcelaServiceTest {
     /**
      * Test of getParcelasOfMonthPagas method, of class ParcelaService.
      */
-    @Test
+    //@Test
     public void testGetParcelasOfMonthPagas() throws Exception {
         System.out.println("getParcelasOfMonthPagas");
         startParcelas(vndOne, Boolean.TRUE);
@@ -456,7 +456,7 @@ public class ParcelaServiceTest {
     /**
      * Test of setPagamentoParcela method, of class ParcelaService.
      */
-    @Test
+    //@Test
     public void testSetPagamentoParcela() throws Exception {
         System.out.println("setPagamentoParcela");
         startParcelas(vndOne, Boolean.FALSE);
@@ -475,7 +475,7 @@ public class ParcelaServiceTest {
     /**
      * Test of getSaldo method, of class ParcelaService.
      */
-    @Test
+    //@Test
     public void testGetSaldo() throws Exception {
         System.out.println("getSaldo");
         startParcelas(vndOne, Boolean.FALSE);
@@ -497,7 +497,7 @@ public class ParcelaServiceTest {
     /**
      * Test of getParcelasAtrasadas method, of class ParcelaService.
      */
-    @Test
+    //@Test
     public void testGetParcelasAtrasadas() throws Exception {
         System.out.println("getParcelasAtrasadas");
         startParcelas(vndOne, Boolean.FALSE);
