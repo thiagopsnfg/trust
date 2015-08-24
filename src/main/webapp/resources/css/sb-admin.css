@@ -199,6 +199,23 @@ ul.alert-dropdown {
 .panel-red > a:hover {
     color: #b52b27;
 }
+.panel-red {
+    border-color: #d9534f;
+}
+
+.panel-red > .panel-heading {
+    border-color: #d9534f;
+    color: #fff;
+    background-color: #d9534f;
+}
+
+.panel-red > a {
+    color: #d9534f;
+}
+
+.panel-red > a:hover {
+    color: #b52b27;
+}
 
 .panel-yellow {
     border-color: #f0ad4e;
@@ -216,4 +233,27 @@ ul.alert-dropdown {
 
 .panel-yellow > a:hover {
     color: #df8a13;
+}
+/* my custom adjust */
+.panelPadding{
+    padding-top: 12PX;
+    padding-left: 5PX;
+    padding-right: 5PX;
+}
+.ajax-status {
+    display:block;
+    margin-bottom:2em;
+    height:24px;
+}
+.iconTable-green{
+    margin-right: 15px;
+    color: #5cb85c;
+}
+.iconTable-red{
+    margin-right: 15px;
+    color: #d9534f;
+}
+.iconTable-blue{
+    margin-right: 15px;
+    color: #337ab7;
 }

@@ -59,7 +59,9 @@ public class ClienteService extends BasicService{
     public List<Cliente> getClientes(){
        return clienteRepository.getClientes();
     }
-    
+    public Long getClientesCadastrados(){
+        return clienteRepository.getClientesCadastrados();
+    }    
     public List<Cliente> getClienteByName(String name){
         return clienteRepository.getClienteByName(name);
        
@@ -67,5 +69,11 @@ public class ClienteService extends BasicService{
      public List<Cliente> getClienteBySituacao(Situacao situacao){
         return clienteRepository.getClienteBySituacao(situacao);
     } 
+     public List<Cliente> getClientesAtivosInativos(Boolean status){
+         return clienteRepository.getClientesAtivosInativos(status);
+     }
+     public List<Cliente> getClientesEmAtraso(){
+         return clienteRepository.getClientesEmAtraso();
+     }
     
 }

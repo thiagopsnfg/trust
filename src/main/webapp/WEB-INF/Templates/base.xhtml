@@ -3,7 +3,8 @@
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">        
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">        
 
 
     <h:head>
@@ -30,15 +31,9 @@
             <!-- Custom Fonts -->
             <h:outputStylesheet library="css" name="font-awesome.css"/>
         </f:facet>
-
-        <script>
-            $myjQ = jQuery.noConflict();
-        </script>       
     </h:head>
     <h:body>
-
         <div id="wrapper"> 
-
             <!-- Navigation -->
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">                
                 <!-- Top Menu Items -->
@@ -51,6 +46,22 @@
 
             <div id="page-wrapper">
                 <div class="container-fluid">
+                    <!-- Mensagem para requisições Ajax 
+                    <p:ajaxStatus styleClass="ajax-status">
+                        <f:facet name="start">
+                            <h:graphicImage library="images" name="loading.gif" />
+                        </f:facet>
+                        <f:facet name="complete">
+                            <h:outputText value="" />
+                        </f:facet>
+                    </p:ajaxStatus>
+                    
+                    <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
+
+                    <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+                        <p:graphicImage library="images" name="loading.gif"/>
+                    </p:dialog>
+                    -->
                     <ui:insert name="content"/>
                 </div>
             </div> 

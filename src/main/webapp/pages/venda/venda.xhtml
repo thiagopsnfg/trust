@@ -1,0 +1,213 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"             
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/Templates/base.xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="titleOfPage">
+        Lançar Venda
+    </ui:define>
+
+    <ui:define name="content">
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <ol class="breadcrumb">
+                    <li class="active">
+                        <i class="fa fa-dashboard"></i> Clientes
+                    </li>
+                    <li class="active">
+                        Lançar Venda
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <p:messages id="msg" autoUpdate="true" globalOnly="true" closable="true" showDetail="true"/>               
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!--Painel de Cadastro-->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default ">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><i class="fa fa-plus fa-fw"></i> Nova Venda</h3>
+                    </div>
+                    <div class="panel-body panelPadding">                                
+                        <h:form id="frmAddVenda" prependId="false"> 
+                            <div jsf:id="valoresPanel">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group"> 
+                                            <label for="txtNome">Cliente</label>
+                                            <input jsf:id="txtNome" type="text" jsf:value="#{vendaController.cliente.nome}" class="form-control" readonly="true" title="Cliente"/> 
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <p:message for="txtNome"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end Form Row-->
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="dataVenda">Data</label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-calendar"/></span>
+                                                <input jsf:id="dataVenda" type="date" jsf:value="#{vendaController.venda.dataVenda}" class="form-control" placeholder="Data da Venda" required="true" jsf:required="true">
+                                                    <f:convertDateTime pattern="yyyy-MM-dd"/>
+                                                </input>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <p:message for="dataVenda"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end Form Row-->
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group"> 
+                                            <label for="totalVenda">Valor</label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-money"/></span>
+                                                <input type="number" step="any" jsf:id="totalVenda" jsf:value="#{vendaController.venda.total}" class="form-control" placeholder="Total da Venda" title="Total da Venda" required="true" jsf:required="true"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <p:message for="totalVenda"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end Form Row-->
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group"> 
+                                            <label for="entradaVenda">Entrada</label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-money"/></span>
+                                                <input type="number" step="any" jsf:id="entradaVenda" jsf:value="#{vendaController.venda.entrada}" class="form-control" placeholder="Entrada" title="Entrada" required="true" jsf:required="true" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <p:message for="entradaVenda"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end Form Row-->
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group"> 
+                                            <label for="qutPecas">Quatidade de Peças</label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-tags"/></span>
+                                                <input type="number" jsf:id="qutPecas" jsf:value="#{vendaController.venda.qutPeças}" class="form-control" placeholder="Quantidade de Peças" title="Quantidade de Peças" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <p:message for="qutPecas"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end Form Row-->
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group"> 
+                                            <label for="qutParcelas">Parcelamento</label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-credit-card"/></span>
+                                                <input type="number" jsf:id="qutParcelas" jsf:value="#{vendaController.venda.parcelas}" class="form-control" placeholder="Parcelamento" title="Parcelamento"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <p:message for="qutParcelas" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end Form Row-->
+                            <hr/>
+
+                            <div jsf:id="saldopPanel">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group"> 
+                                            <label for="saldo">Saldo</label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-money"/></span>
+                                                <input type="number" jsf:id="saldo" jsf:value="#{vendaController.venda.entrada.subtract(vendaController.venda.total)}" class="form-control" placeholder="Saldo" title="Saldo" readonly="true" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end Form Row-->
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <div class="form-group"> 
+                                            <label for="parcela">Valor da Parcela</label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-money"/></span>
+                                                <input type="number" jsf:id="parcela" jsf:value="#{vendaController.valorDaParcela}" class="form-control" placeholder="Saldo" title="parcela" readonly="true"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group"> 
+                                            <label for="vencimento">Primeiro Vencimento</label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-calendar"/></span>
+                                                <input type="text" jsf:id="vencimento" jsf:value="#{vendaController.primeiroVencimento}" class="form-control" placeholder="Primeiro Vencimento" title="Primeiro Vencimento" readonly="true">
+                                                    <f:convertDateTime pattern="dd-MM-yyyy" />
+                                                </input>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <h:commandButton actionListener="#{vendaController.calculaParcela()}" class="btn btn-default btn-lg btn-block" value="Calcular">
+                                            <f:ajax render="saldopPanel" execute="valoresPanel"/>
+                                        </h:commandButton>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end Form Row-->
+                            <hr/>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <h:commandButton action="#{vendaController.doFinishAddVenda()}" class="btn btn-primary btn-lg btn-block" value="Lançar"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end Form Row-->
+                        </h:form> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.Painel de Cadastro -->
+    </ui:define>
+</ui:composition>

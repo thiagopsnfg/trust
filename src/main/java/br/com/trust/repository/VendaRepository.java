@@ -43,6 +43,12 @@ public class VendaRepository extends BasicRepository {
     public List<Venda> getVendasOfCliente(int idOfCliente) {
         return getPureList(Venda.class, "SELECT vnd FROM Venda vnd WHERE vnd.idCliente.id = ?1", idOfCliente);
     }
+    public List<Venda> getVendasOfClienteEmAberto(int idOfCliente) {
+        return getPureList(Venda.class, "SELECT vnd FROM Venda vnd WHERE vnd.idCliente.id = ?1 AND vnd.quitada = ?2", idOfCliente, Boolean.FALSE);
+    }
+    public List<Venda> getVendasOfClienteQuitadas(int idOfCliente) {
+        return getPureList(Venda.class, "SELECT vnd FROM Venda vnd WHERE vnd.idCliente.id = ?1 AND vnd.quitada = ?2", idOfCliente, Boolean.TRUE);
+    }
 
     public List<Venda> getVendasOfMonth(int month, int year) {
         Calendar cal = Calendar.getInstance();

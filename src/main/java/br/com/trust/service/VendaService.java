@@ -68,13 +68,21 @@ public class VendaService extends BasicService {
         return vndRepository.getVendasOfCliente(idOfCliente);
     }
 
+    public List<Venda> getVendasOfClienteEmAberto(int idOfCliente) {
+        return vndRepository.getVendasOfClienteEmAberto(idOfCliente);
+    }
+
+    public List<Venda> getVendasOfClienteQuitadas(int idOfCliente) {
+        return vndRepository.getVendasOfClienteQuitadas(idOfCliente);
+    }
+
     public List<Venda> getVendasOfMonth(int month, int year) {
         return vndRepository.getVendasOfMonth(month, year);
     }
 
-    public List<Venda> getVendasOfPeriod(Date start, Date end) {  
-       
-        if(start.after(end) || start.equals(end)){
+    public List<Venda> getVendasOfPeriod(Date start, Date end) {
+
+        if (start.after(end) || start.equals(end)) {
             return null;
         }
         return vndRepository.getVendasOfPeriod(start, end);
@@ -88,14 +96,19 @@ public class VendaService extends BasicService {
         return vndRepository.setVendaQuitada(idOfVenda);
     }
 
-    public BigDecimal getSaldo(Venda vnd) {
+    public void atualizaRecebido(Venda vnd) {
         List<Parcela> parcelas = vnd.getParcelaList();
-        BigDecimal recebido = new BigDecimal("0.00");
+        BigDecimal recebido = BigDecimal.ZERO;
         for (Parcela parcela : parcelas) {
-            recebido.add(parcela.getRecebido()) ;
+            recebido.add(parcela.getRecebido());
         }
-        
-        return (recebido.add(vnd.getEntrada())).subtract(vnd.getTotal());
+        recebido.add(vnd.getEntrada());
+        vnd.setRecebido(recebido);
+    }
+
+    public BigDecimal getSaldo(Venda vnd) {
+        atualizaRecebido(vnd);
+        return vnd.getRecebido().subtract(vnd.getTotal());
     }
 
 }

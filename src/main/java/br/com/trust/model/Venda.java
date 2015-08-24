@@ -48,17 +48,17 @@ public class Venda implements Serializable {
     @Basic(optional = false)
     @NotNull(message = "O total da venda deve ser informado!")
     @Column(name = "total", nullable = false,precision = 9,scale = 2)
-    private BigDecimal total;
+    private BigDecimal total = BigDecimal.ZERO;
     @Basic(optional = false)
     @NotNull()
     @Column(name = "entrada", nullable = false,precision = 9,scale = 2)
-    private BigDecimal entrada = new BigDecimal("0.00");
+    private BigDecimal entrada = BigDecimal.ZERO;
     @Basic(optional = false)
     @NotNull(message = "A quantidade de parcelas deve ser definida!")
     @Column(name = "parcelas", nullable = false)
-    private Integer parcelas;
+    private Integer parcelas = 1;
     @Column(name = "qutPecas")
-    private Integer qutPeças;
+    private Integer qutPeças = 0;
     @Basic(optional = false)
     @NotNull(message = "A data da venda deve ser definida!!")
     @Column(name = "dataVenda", nullable = false)

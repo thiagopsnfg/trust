@@ -113,15 +113,15 @@ public class ParcelaServiceTest {
 
         //vendaService.addVenda(vndOne);
         //vendaService.addVenda(vndTwo);
-        //vendaService.addVenda(vndThree);
+       // vendaService.addVenda(vndThree);
     }
 
     @After
     public void tearDown() {
-        vendaService.removeVenda(vndOne);
-        vendaService.removeVenda(vndTwo);
-        vendaService.removeVenda(vndThree);
-        clienteService.removeCliente(cliente);
+        //vendaService.removeVenda(vndOne);
+       // vendaService.removeVenda(vndTwo);
+        //vendaService.removeVenda(vndThree);
+       // clienteService.removeCliente(cliente);
         //Finaliza o container.        
         container.close();
         prcOne = null;
@@ -200,9 +200,14 @@ public class ParcelaServiceTest {
     public void testAddParcela() throws Exception {
         System.out.println("addParcela");
         startParcelas(vndOne, Boolean.TRUE);
+        startParcelas(vndTwo, Boolean.FALSE);
+        startParcelas(vndThree, Boolean.FALSE);
 
         vndOne = vendaService.addVenda(vndOne);
+        vndTwo = vendaService.addVenda(vndTwo);
+        vndThree = vendaService.addVenda(vndThree);
 
+        
         Parcela result1 = instance.getParcela(prcOne.getId());
         Parcela result2 = instance.getParcela(prcTwo.getId());
         Parcela result3 = instance.getParcela(prcThree.getId());
@@ -215,6 +220,7 @@ public class ParcelaServiceTest {
         assertNotNull(result3);
         assertNotNull(result4);
         assertNotNull(result5);
+        
     }
 
     /**

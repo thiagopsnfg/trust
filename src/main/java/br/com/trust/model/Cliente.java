@@ -29,7 +29,6 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author Thiago
  */
 
-
 @Entity
 @Table(name = "cliente", catalog = "trust", schema = "")
 @XmlRootElement
@@ -43,7 +42,7 @@ public class Cliente implements Serializable {
     private Integer id;
     @Basic(optional = false)
     @NotNull(message = "O Nome não pode ser vazio!")
-    @Size(min = 3, max = 255, message = "Nome muito pequeno.")
+    @Size(min = 3, max = 255, message = "O nome esta muito pequeno.")
     @Column(name = "nome", nullable = false, length = 255)
     private String nome;
     @Size(max = 45)
@@ -77,8 +76,8 @@ public class Cliente implements Serializable {
     @Size(max = 45)
     @Column(name = "endereco", length = 45)
     private String endereco;
-    @Size(max = 8)
-    @Column(name = "cep", length = 8)
+    @Size(max = 9)
+    @Column(name = "cep", length = 9)
     private String cep;
     @Size(max = 255)
     @Column(name = "endTrabalho", length = 255)
@@ -86,11 +85,13 @@ public class Cliente implements Serializable {
     @Size(max = 255)
     @Column(name = "dataRecebimento", length = 255)
     private String dataRecebimento;
-    
+    @Size(max = 255)
+    @Column(name = "rua", length = 255)
+    private String rua;
+
     @Enumerated(EnumType.STRING)
     private Situacao situacao = Situacao.EM_DIA;
-    
-    
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCliente")
     private List<Venda> vendaList = new LinkedList<>();
 
@@ -233,11 +234,19 @@ public class Cliente implements Serializable {
     }
 
     public Situacao getSituacao() {
-        return situacao;       
+        return situacao;
     }
 
     public void setSituacao(Situacao situacao) {
         this.situacao = situacao;
+    }
+
+    public String getRua() {
+        return rua;
+    }
+
+    public void setRua(String rua) {
+        this.rua = rua;
     }
 
     @XmlTransient

@@ -1,0 +1,154 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"             
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/Templates/base.xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="titleOfPage">
+        Editar Cliente
+    </ui:define>
+
+    <ui:define name="content">
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Editar Clientes 
+                </h1>
+                <ol class="breadcrumb">
+                    <li class="active">
+                        <i class="fa fa-dashboard"></i> Clientes
+                    </li>
+                    <li class="active">
+                        editar Cliente
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <p:messages id="msg" autoUpdate="true" closable="true" showDetail="true"/>               
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!--Painel de Cadastro-->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default ">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><i class="fa fa-plus fa-fw"></i> Editar Cadastro</h3>
+                    </div>
+                    <div class="panel-body panelPadding">                                
+                        <h:form id="frmCadCliente" prependId="false">
+                            <div class="row">
+                                <div class="col-lg-10">
+                                    <div class="form-group">                                   
+                                        <input id="txtNome" type="text" jsf:value="#{clienteController.clienteSelecionado.nome}" class="form-control" placeholder="Nome"/> 
+                                    </div>
+                                </div>
+                                <div class="col-lg-2">
+                                    <div class="form-group">                                   
+                                        <h:selectOneMenu value="#{clienteController.clienteSelecionado.situacao}" class="form-control">
+                                            <f:selectItems value="#{clienteController.situacoes}" var="situacao" itemValue="#{situacao}" itemLabel="#{situacao.descricao}"/>
+                                        </h:selectOneMenu>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">   
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-mobile"/></span>
+                                            <input type="tel" jsf:value="#{clienteController.clienteSelecionado.telCelular}" class="form-control" placeholder="Tel."/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-phone-square"/></span>
+                                            <input type="tel" jsf:value="#{clienteController.clienteSelecionado.telFixo}" class="form-control" placeholder="Fixo."/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-mobile"/></span>
+                                            <input type="tel" jsf:value="#{clienteController.clienteSelecionado.telContato}" class="form-control" placeholder="Te. Contato"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-at"/></span>
+                                    <input type="email" jsf:value="#{clienteController.clienteSelecionado.email}" class="form-control" placeholder="email"/>
+                                </div>
+                            </div>
+                            <div class="form-group">                                   
+                                <input type="text" jsf:value="#{clienteController.clienteSelecionado.referencia}" class="form-control" placeholder="Referência"/> 
+                            </div>
+                            <hr/>
+                            <div class="row">
+                                <div class="col-lg-2">
+                                    <div class="form-group">
+                                        <input pattern="^\d{5}-\d{3}$" type="text" jsf:value="#{clienteController.clienteSelecionado.cep}" class="form-control" placeholder="CEP"/> 
+                                    </div>
+                                </div>
+                                <div class="col-lg-10">
+                                    <div class="form-group">                                   
+                                        <input type="text" jsf:value="#{clienteController.clienteSelecionado.rua}" class="form-control" placeholder="Rua"/> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <div class="form-group">
+                                        <input type="text" jsf:value="#{clienteController.clienteSelecionado.bairro}" class="form-control" placeholder="Bairro"/> 
+                                    </div>
+                                </div>
+                                <div class="col-lg-5">
+                                    <div class="form-group">
+                                        <input type="text" jsf:value="#{clienteController.clienteSelecionado.cidade}" class="form-control" placeholder="Cidade"/> 
+                                    </div>
+                                </div>
+                                <div class="col-lg-2">
+                                    <div class="form-group">
+                                        <h:selectOneListbox value="#{clienteController.clienteSelecionado.uf}" class="form-control" size="1">
+                                            <f:selectItem itemValue="RJ" />
+                                            <f:selectItem itemValue="SP" />
+                                            <f:selectItem itemValue="MG" />
+                                            <f:selectItem itemValue="ES" />
+                                            <f:selectItem itemValue="PR" />
+                                            <f:selectItem itemValue="SC" />
+                                            <f:selectItem itemValue="RS" />
+                                        </h:selectOneListbox>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">                                   
+                                <input type="text" jsf:value="#{clienteController.clienteSelecionado.endTrabalho}" class="form-control" placeholder="Endereço Trabalho"/> 
+                            </div>
+                            <hr/>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-offset-3">
+                                    <div class="form-group">
+                                        <h:commandButton action="#{clienteController.doFinishAlterar()}" class="btn btn-primary btn-lg btn-block" value="Salvar"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </h:form>                                
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.Painel de Cadastro -->
+    </ui:define>
+</ui:composition>

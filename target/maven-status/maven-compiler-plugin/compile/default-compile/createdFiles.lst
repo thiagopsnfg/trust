@@ -14,4 +14,5 @@ br\com\trust\repository\ParcelaRepository.class
 br\com\trust\model\Parcela.class
 br\com\trust\model\Venda_.class
 br\com\trust\service\VendaService.class
+br\com\trust\controller\vendaController.class
 br\com\trust\model\Venda.class

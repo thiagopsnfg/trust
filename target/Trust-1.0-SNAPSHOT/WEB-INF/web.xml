@@ -7,11 +7,7 @@
         <param-name>javax.faces.PROJECT_STAGE</param-name>
         <param-value>Development</param-value>
     </context-param>
-    <!--Omite comentários no html gerado-->
-    <context-param>
-        <param-name>javax.faces.FACELETS_SKIP_COMMENTS</param-name>
-        <param-value>true</param-value>
-    </context-param>
+    
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
@@ -21,16 +17,29 @@
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
+    
+    <welcome-file-list>
+        <welcome-file>pages/index.xhtml</welcome-file>               
+    </welcome-file-list>
     <session-config>
         <session-timeout>
             180
         </session-timeout>
     </session-config>
-    <welcome-file-list>
-        <welcome-file>pages/index.xhtml</welcome-file>               
-    </welcome-file-list>
     
-    <!--Primefaces-->    
+    <!--Omite comentários no html gerado-->
+    <context-param>
+        <param-name>javax.faces.FACELETS_SKIP_COMMENTS</param-name>
+        <param-value>true</param-value>
+    </context-param>
+   
+    <!--verificar se algum arquivo do projeto foi alterado a cada 2's: ATENÇÃO em produção mudar para -1-->
+    <context-param>
+        <param-name>javax.faces.FACELETS_REFRESH_PERIOD</param-name>
+        <param-value>0</param-value>
+    </context-param>   
+    
+    <!--Primefaces Theme-->    
     <context-param>
         <param-name>primefaces.THEME</param-name>
         <param-value>bootstrap</param-value>
