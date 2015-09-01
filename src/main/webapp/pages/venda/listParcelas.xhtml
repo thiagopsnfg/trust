@@ -1,0 +1,88 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"             
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/Templates/base.xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <ui:define name="titleOfPage">
+        Listar Compras
+    </ui:define>
+
+    <ui:define name="content">
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <ol class="breadcrumb">
+                    <li class="active">
+                        <i class="fa fa-dashboard"></i>  
+                        <a jsf:outcome="cliente"> Clientes</a> 
+                    </li>
+                    <li class="active">
+                        Listar Compras
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <p:messages id="msg" autoUpdate="true" closable="true" showDetail="true"/>               
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!--Painel de Cadastro-->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default ">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><i class="fa fa-list-alt fa-fw"/> Compras do Cliente #{vendaController.cliente.nome}</h3>
+                    </div>
+                    <div class="panel-body panelPadding">                                
+                        <h:form id="frmListVendas" prependId="false"> 
+                            <p:dataTable id="table"  value="#{vendaController.cliente.vendaList}"  var="venda" 
+                                         emptyMessage="Nenhum Venda encontrada"
+                                         paginator="true" rows="20" 
+                                         paginatorPosition="bottom">
+
+                                <p:column headerText="Realizada">
+                                    <center>
+                                        <h:outputText value="#{venda.dataVenda}">
+                                            <f:convertDateTime pattern="dd/MM/yyyy"/>
+                                        </h:outputText> 
+                                    </center>
+                                </p:column>
+                                <p:column headerText="Total">
+                                    <center>
+                                        <h:outputText value="#{venda.total}">
+                                            <f:convertNumber type="currency" locale="pt_BR" />
+                                        </h:outputText>                                        
+                                    </center>
+                                </p:column>
+                                <p:column headerText="Recebido">
+                                    <center>
+                                        <h:outputText value="#{venda.recebido}">
+                                            <f:convertNumber type="currency" locale="pt_BR" />
+                                        </h:outputText>  
+                                    </center>
+                                </p:column>
+                                <p:column headerText="Saldo">
+                                    <center>
+                                        <h:outputText value="#{venda.total.subtract(venda.recebido)}">   
+                                            <f:convertNumber type="currency" locale="pt_BR" />
+                                        </h:outputText>  
+                                    </center>
+                                </p:column>
+                            </p:dataTable>
+                        </h:form> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.Painel de Cadastro -->
+    </ui:define>
+</ui:composition>

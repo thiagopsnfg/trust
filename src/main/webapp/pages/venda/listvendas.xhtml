@@ -1,0 +1,171 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"             
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/Templates/base.xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <ui:define name="titleOfPage">
+        Listar Compras
+    </ui:define>
+
+    <ui:define name="content">
+        <f:metadata>
+            <f:viewAction action="#{vendaController.preencherTotaisAndSetaVendaNull}"/>
+        </f:metadata>
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <ol class="breadcrumb">
+                    <li class="active">
+                        <i class="fa fa-dashboard"></i>  
+                        <a jsf:outcome="cliente"> Clientes</a> 
+                    </li>
+                    <li class="active">
+                        Listar Compras
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <p:messages id="msg" autoUpdate="true" closable="true" showDetail="true"/>               
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!--Painel de Cadastro-->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default ">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><i class="fa fa-list-alt fa-fw"/> Compras do Cliente #{vendaController.cliente.nome}</h3>
+                    </div>
+                    <div class="panel-body panelPadding">                                
+                        <h:form id="frmListVendas" prependId="false"> 
+                            <p:dataTable id="table"  
+                                         value="#{vendaController.cliente.vendaList}"  
+                                         var="venda" 
+                                         emptyMessage="Nenhum Venda encontrada"
+                                         paginator="true" 
+                                         rows="20" 
+                                         paginatorPosition="bottom">
+
+                                <p:column headerText="Realizada">
+                                    <center>
+                                        <h:outputText value="#{venda.dataVenda}">
+                                            <f:convertDateTime pattern="dd/MM/yyyy"/>
+                                        </h:outputText> 
+                                    </center>
+                                </p:column>
+                                <p:column headerText="Total">
+                                    <center>
+                                        <h:outputText value="#{venda.total}">
+                                            <f:convertNumber type="currency" locale="pt_BR" />
+                                        </h:outputText>                                        
+                                    </center>
+                                </p:column>
+                                <p:column headerText="Recebido">
+                                    <center>
+                                        <h:outputText value="#{venda.recebido}">
+                                            <f:convertNumber type="currency" locale="pt_BR" />
+                                        </h:outputText>  
+                                    </center>
+                                </p:column>
+                                <p:column headerText="Saldo">
+                                    <center>
+                                        <h:outputText value="#{venda.total.subtract(venda.recebido)}">   
+                                            <f:convertNumber type="currency" locale="pt_BR" />
+                                        </h:outputText>  
+                                    </center>
+                                </p:column>
+                                <p:column headerText="Listar Parcelas">
+                                    <center>
+                                        <button type="button" jsf:id="listarParcelas" jsf:actionListener="#{vendaController.setVendaSelected(venda)}" class="btn btn-default" style="width: 80%">
+                                            <i class="fa fa-search " />
+                                            <f:ajax render="tableParcela"/>
+                                        </button>
+                                    </center>
+                                </p:column>
+                                <p:columnGroup type="footer">
+                                    <p:column style="font-weight: bold" footerText="Total:" />
+                                    <p:column style="font-weight: bold" footerText="R$ #{vendaController.totaldasVendas}" />
+                                    <p:column style="font-weight: bold" footerText="R$ #{vendaController.totalRecebido}" />
+                                    <p:column style="font-weight: bold" footerText="R$ #{vendaController.totalSaldo}" />
+                                    <p:column />
+                                </p:columnGroup>
+                            </p:dataTable>
+                        </h:form> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default ">
+                    <div class="panel-body panelPadding">                                
+                        <h:form id="frmListParcelas" prependId="false"> 
+                            <p:dataTable id="tableParcela"
+                                         value="#{vendaController.vendaSelected.parcelaList}"  
+                                         var="parcela" 
+                                         emptyMessage="Nenhum Venda encontrada"
+                                         paginator="true" rows="20" 
+                                         paginatorPosition="bottom">
+
+                                <p:column headerText="Numero">
+                                    <center>
+                                        <h:outputText value="#{parcela.numeroDaParcela}"/>
+                                    </center>
+                                </p:column>
+                                <p:column headerText="Vencimento">
+                                    <center>
+                                        <h:outputText value="#{parcela.vencimento}">
+                                            <f:convertDateTime parent="dd/MM/yyyy"/>
+                                        </h:outputText>
+                                    </center>
+                                </p:column>
+                                <p:column headerText="Total">
+                                    <center>
+                                        <h:outputText value="#{parcela.valor}">
+                                            <f:convertNumber type="currency" locale="pt_BR" />
+                                        </h:outputText>                                        
+                                    </center>
+                                </p:column>
+                                <p:column headerText="Recebido">
+                                    <center>
+                                        <h:outputText value="#{parcela.recebido}">
+                                            <f:convertNumber type="currency" locale="pt_BR" />
+                                        </h:outputText>  
+                                    </center>
+                                </p:column>
+                                <p:column headerText="Saldo">
+                                    <center>
+                                        <h:outputText value="#{parcela.valor.subtract(parcela.recebido)}">   
+                                            <f:convertNumber type="currency" locale="pt_BR" />
+                                        </h:outputText>  
+                                    </center>
+                                </p:column>
+                                <p:column id="coluna1" headerText="Pago?">
+                                    <center>
+                                        <h:commandLink rendered="#{parcela.pago}" actionListener="#{vendaController.switchPago(parcela)}" >
+                                            <i class="fa fa-thumbs-o-up fa-2x iconTable-blue"></i>
+                                        </h:commandLink>
+                                        <h:commandLink rendered="#{!parcela.pago}" actionListener="#{vendaController.switchPago(parcela)}" >
+                                            <i class="fa fa-thumbs-o-down fa-2x iconTable-red"></i>
+                                        </h:commandLink>
+                                    </center>
+                                </p:column>
+                            </p:dataTable>
+                        </h:form> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.Painel de Cadastro -->
+    </ui:define>
+</ui:composition>

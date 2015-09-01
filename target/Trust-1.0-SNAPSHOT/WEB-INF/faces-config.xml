@@ -24,7 +24,15 @@
         <from-view-id>/pages/*</from-view-id>
         <navigation-case>
             <from-outcome>venda</from-outcome>
-            <to-view-id>/pages/venda/venda.xhtml</to-view-id>
+            <to-view-id>/pages/venda/addvenda.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+     <navigation-rule>
+        <from-view-id>/pages/*</from-view-id>
+        <navigation-case>
+            <from-outcome>listVendas</from-outcome>
+            <to-view-id>/pages/venda/listvendas.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
     </navigation-rule>

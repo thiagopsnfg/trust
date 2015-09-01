@@ -14,6 +14,7 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -46,7 +47,7 @@ public class Venda implements Serializable {
     @Column(name = "quitada", nullable = false)
     private Boolean quitada = Boolean.FALSE;
     @Basic(optional = false)
-    @NotNull(message = "O total da venda deve ser informado!")
+    @NotNull(message = "O total da venda deve ser informado!")    
     @Column(name = "total", nullable = false,precision = 9,scale = 2)
     private BigDecimal total = BigDecimal.ZERO;
     @Basic(optional = false)
@@ -71,7 +72,7 @@ public class Venda implements Serializable {
     @JoinColumn(name = "idCliente", referencedColumnName = "idCliente", nullable = false)
     @ManyToOne(optional = false)
     private Cliente idCliente;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idVenda")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idVenda",fetch = FetchType.EAGER)
     private List<Parcela> parcelaList = new LinkedList<>();
 
     public void addParcela(Parcela parcela){

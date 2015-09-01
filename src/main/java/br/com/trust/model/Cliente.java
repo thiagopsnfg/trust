@@ -14,6 +14,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -92,7 +93,7 @@ public class Cliente implements Serializable {
     @Enumerated(EnumType.STRING)
     private Situacao situacao = Situacao.EM_DIA;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCliente")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCliente",fetch = FetchType.EAGER)
     private List<Venda> vendaList = new LinkedList<>();
 
     public void addVenda(Venda vnd) {

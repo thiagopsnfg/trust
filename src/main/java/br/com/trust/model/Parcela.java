@@ -7,6 +7,7 @@ package br.com.trust.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -53,7 +54,7 @@ public class Parcela implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "recebido", nullable = false, precision = 9,scale = 2)
-    private BigDecimal recebido =  new BigDecimal("0.00");
+    private BigDecimal recebido =  new BigDecimal(BigInteger.ZERO);
     @Basic(optional = false)
     @NotNull
     @Column(name = "pago", nullable = false)

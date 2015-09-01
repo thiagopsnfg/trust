@@ -249,11 +249,70 @@ ul.alert-dropdown {
     margin-right: 15px;
     color: #5cb85c;
 }
+.iconTable-green:hover{
+    color: #3d8b3d;
+}
 .iconTable-red{
     margin-right: 15px;
     color: #d9534f;
 }
+.iconTable-red:hover{
+    color: #b52b27;
+}
 .iconTable-blue{
     margin-right: 15px;
     color: #337ab7;
+}
+.iconTable-blue:hover{
+    color: 23527c;
+}
+.iconTable-yelow{
+    margin-right: 15px;
+    color: #f0ad4e;
+
+}
+.iconTable-yelow:hover{
+    color: #f0ad4e;
+    color: #df8a13;
+}
+
+
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight{
+    color: #000000;
+    background-image: linear-gradient(to bottom, #FFFFFF, #FFFFFF);
+}
+
+.col-xs-15,
+.col-sm-15,
+.col-md-15,
+.col-lg-15 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+/*Medias queries */
+
+.col-xs-15 {
+    width: 20%;
+    float: left;
+}
+@media (min-width: 768px) {
+.col-sm-15 {
+        width: 20%;
+        float: left;
+    }
+}
+@media (min-width: 992px) {
+    .col-md-15 {
+        width: 20%;
+        float: left;
+    }
+}
+@media (min-width: 1200px) {
+    .col-lg-15 {
+        width: 20%;
+        float: left;
+    }
 }

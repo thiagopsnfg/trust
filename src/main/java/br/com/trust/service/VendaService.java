@@ -8,11 +8,11 @@ package br.com.trust.service;
 import br.com.trust.model.Parcela;
 import br.com.trust.model.Venda;
 import br.com.trust.repository.VendaRepository;
+import java.awt.BorderLayout;
 import java.math.BigDecimal;
-import java.util.Calendar;
+import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 import javax.annotation.PostConstruct;
 import javax.ejb.LocalBean;
 import javax.ejb.PostActivate;
@@ -98,11 +98,12 @@ public class VendaService extends BasicService {
 
     public void atualizaRecebido(Venda vnd) {
         List<Parcela> parcelas = vnd.getParcelaList();
-        BigDecimal recebido = BigDecimal.ZERO;
+        BigDecimal recebido = new BigDecimal("0.00");
         for (Parcela parcela : parcelas) {
             recebido.add(parcela.getRecebido());
         }
-        recebido.add(vnd.getEntrada());
+        recebido = recebido.add(vnd.getEntrada());
+
         vnd.setRecebido(recebido);
     }
 

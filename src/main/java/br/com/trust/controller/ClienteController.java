@@ -6,14 +6,11 @@
 package br.com.trust.controller;
 
 import br.com.trust.model.Cliente;
-import br.com.trust.model.Parcela;
 import br.com.trust.model.Situacao;
 import br.com.trust.model.Venda;
 import br.com.trust.service.ClienteService;
 import br.com.trust.service.VendaService;
 import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -22,6 +19,7 @@ import javax.ejb.PostActivate;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.inject.Named;
+import org.primefaces.event.CellEditEvent;
 
 /**
  *
@@ -45,6 +43,7 @@ public class ClienteController extends BasicController implements java.io.Serial
     private int clientesEmAtraso;
     private int clientesInadimplentes;
     private int option;
+   
     private String filter;
     private List<Cliente> filtrados;
     private Cliente clienteSelecionado;
@@ -76,8 +75,8 @@ public class ClienteController extends BasicController implements java.io.Serial
     }
 
     public void doFinishExcluir() {
-        if(vendaService.getVendasOfClienteEmAberto(clienteSelecionado.getIdCliente()).size() > 0){
-            messages(FacesMessage.SEVERITY_ERROR,"Este cliente possui compras em aberto!!" );
+        if (vendaService.getVendasOfClienteEmAberto(clienteSelecionado.getIdCliente()).size() > 0) {
+            messages(FacesMessage.SEVERITY_ERROR, "Este cliente possui compras em aberto!!");
             return;
         }
         clienteService.removeCliente(clienteSelecionado);
@@ -127,53 +126,29 @@ public class ClienteController extends BasicController implements java.io.Serial
         return Situacao.values();
     }
 
-    public String doStartAddVenda() {
-        System.out.println("Entrou no doStartAddVenda");
-        System.out.println("ID do Cliente: " + clienteSelecionado.getIdCliente());
+    //Ajax
+    public void onCellEdit(CellEditEvent event) {
+        System.out.println("Entrou no onCellEdit");
+        Situacao situacao = (Situacao) event.getNewValue();
+        Situacao oldValue = (Situacao) event.getOldValue();
 
-        venda = new Venda();
-        venda.setIdCliente(clienteSelecionado);
-        return "venda";
-    }
+        System.out.println("getNewValue: " + situacao);
+        System.out.println("getOldValue: " + oldValue);
 
-    public String doFinishAddVenda() {
-        primeiroVencimento = null;
-        valorDaParcela = null;
-        vendaService.addVenda(venda);
-        return "cliente";
-    }
+        if (situacao != null && !situacao.equals(oldValue)) {
+            Cliente cliente = filtrados.get(event.getRowIndex());
 
-    public void calculaParcela() {
-        if (venda.getTotal() == null || (venda.getTotal().compareTo(BigDecimal.ZERO) < 0)) {
-            System.out.println("Entrou no if do calculaParcela..");
-            System.out.println("Total: " + venda.getTotal());
-            messages(FacesMessage.SEVERITY_ERROR, "Informe o Total da Venda!!!");
-            return;
+            System.out.println("cliente: " + cliente.getNome());
+
+            cliente = clienteService.setCliente(cliente);
+
+            filtrados.set(event.getRowIndex(), cliente);
         }
-        valorDaParcela = venda.getTotal()
-                .subtract(venda.getEntrada())
-                .divide(new BigDecimal(venda.getParcelas()), 2, RoundingMode.UP);
-
-        System.out.println("Valor da parcela: " + valorDaParcela);
-
-        Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.MONTH, 1);
-        primeiroVencimento = cal.getTime();
-        System.out.println("Vencimento da primeira Parcela: " + cal.getTime());
-
-        for (int x = 0; x < venda.getParcelas(); x++) {
-            Parcela parcela = new Parcela();
-            parcela.setRecebido(BigDecimal.ZERO);
-            parcela.setValor(valorDaParcela);
-            parcela.setVencimento(cal.getTime());
-            parcela.setNumeroDaParcela(x + 1);
-            venda.addParcela(parcela);
-            cal.add(Calendar.MONTH, 1);
-            System.out.println("proxima parcela: " + cal.getTime());
-        }
-
     }
 
+    
+    
+    
     //Getters and setters
     public int getClientesCadastrados() {
         return clientesCadastrados;
@@ -262,4 +237,13 @@ public class ClienteController extends BasicController implements java.io.Serial
     public void setPrimeiroVencimento(Date primeiroVencimento) {
         this.primeiroVencimento = primeiroVencimento;
     }
+
+    public VendaService getVendaService() {
+        return vendaService;
+    }
+
+    public void setVendaService(VendaService vendaService) {
+        this.vendaService = vendaService;
+    }
+
 }
